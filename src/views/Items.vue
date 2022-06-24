@@ -17,19 +17,11 @@
           </div>
           <div class="card-body border-bottom">
             <d-input-group>
-              <d-input
-                id="item_id"
-                placeholder="Item ID"
-                v-model="item_id"
-                @keyup.enter.native="search_item"
-              />
+              <d-input id="item_id" placeholder="Item ID" v-model="item_id" @keyup.enter.native="search_item" />
               <d-input-group-addon append>
-                <d-button class="btn-white" @click="search_item"
-                  ><i class="material-icons">search</i></d-button
-                >
-                <d-button class="btn-white" @click="next_page"
-                  ><i class="material-icons">arrow_forward_ios</i></d-button
-                >
+                <d-button class="btn-white" @click="search_item"><i class="material-icons">search</i></d-button>
+                <d-button class="btn-white" @click="next_page"><i class="material-icons">arrow_forward_ios</i>
+                </d-button>
               </d-input-group-addon>
             </d-input-group>
           </div>
@@ -38,11 +30,11 @@
               <thead class="bg-light">
                 <tr>
                   <th scope="col" class="border-0">ID</th>
-                  <th scope="col" class="border-0">Categories</th>
-                  <th scope="col" class="border-0">Hidden</th>
-                  <th scope="col" class="border-0">Timestamp</th>
+                  <th scope="col" class="border-0">WordId</th>
+                  <th scope="col" class="border-0">Body</th>
+                  <!-- <th scope="col" class="border-0">Timestamp</th> -->
                   <th scope="col" class="border-0">Labels</th>
-                  <th scope="col" class="border-0">Description</th>
+                  <th scope="col" class="border-0">Comment</th>
                   <th scope="col" class="border-0"></th>
                 </tr>
               </thead>
@@ -51,40 +43,28 @@
                   <td>{{ item.ItemId }}</td>
                   <td>
                     <div>
-                      <d-badge
-                        outline
-                        theme="secondary"
-                        v-for="(category, idx) in item.Categories"
-                        :key="idx"
-                      >
-                        {{ category }}
+                      <d-badge outline theme="secondary" v-for="(word_id, idx) in item.WordId" :key="idx">
+                        {{ word_id }}
                       </d-badge>
                     </div>
                   </td>
                   <td>
-                    <d-checkbox :checked="item.IsHidden" disabled="true" />
+                    <!-- <d-checkbox :checked="item.WordId" disabled="true" /> -->
                   </td>
-                  <td>{{ format_date_time(item.Timestamp) }}</td>
+                  <td>{{ item.Body }}</td>
                   <td>
                     <div>
-                      <d-badge
-                        outline
-                        theme="primary"
-                        v-for="(label, idx) in item.Labels"
-                        :key="idx"
-                      >
+                      <d-badge outline theme="primary" v-for="(label, idx) in item.Labels" :key="idx">
                         {{ label }}
                       </d-badge>
                     </div>
                   </td>
                   <td>{{ item.Comment }}</td>
                   <td>
-                    <router-link
-                      :to="{
-                        name: 'item_neighbors',
-                        params: { item_id: item.ItemId },
-                      }"
-                    >
+                    <router-link :to="{
+                      name: 'item_neighbors',
+                      params: { item_id: item.ItemId },
+                    }">
                       <d-button size="small" outline>Neighbors</d-button>
                     </router-link>
                   </td>
