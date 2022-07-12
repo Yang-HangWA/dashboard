@@ -29,30 +29,30 @@
             <table class="table mb-0">
               <thead class="bg-light">
                 <tr>
-                  <th scope="col" class="border-0">ID</th>
+                  <th scope="col" class="border-2">ID</th>
                   <!-- <th scope="col" class="border-0">WordId</th> -->
                   <!-- <th scope="col" class="border-0">Body</th> -->
                   <!-- <th scope="col" class="border-0">Timestamp</th> -->
-                  <th scope="col" class="border-1">知识点</th>
-                  <th scope="col" class="border-1">题目</th>
-                  <th scope="col" class="border-1"></th>
+                  <th scope="col" class="border-2">知识点</th>
+                  <th scope="col" class="border-2">题目</th>
+                  <th scope="col" class="border-2"></th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="(item, idx) in items" :key="idx">
                   <td>{{ item.ItemId }}</td>
-                  <td>
+                  <!-- <td>
                     <div>
                       <d-badge outline theme="secondary" v-for="(word_id, idx) in item.WordId" :key="idx">
                         {{ word_id }}
                       </d-badge>
                     </div>
-                  </td>
+                  </td> -->
                   <td>
                     <!-- <d-checkbox :checked="item.WordId" disabled="true" /> -->
-                  </td>
+                    <!-- </td>
                   <td>{{ item.Body }}</td>
-                  <td>
+                  <td> -->
                     <div>
                       <d-badge outline theme="primary" v-for="(label, idx) in item.Labels" :key="idx">
                         {{ label }}

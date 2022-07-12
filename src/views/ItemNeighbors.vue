@@ -22,12 +22,7 @@
                     <label>Categories</label>
                   </d-col>
                   <d-col sm="12" md="10">
-                    <d-badge
-                      outline
-                      theme="secondary"
-                      v-for="(category, idx) in current_item.Categories"
-                      :key="idx"
-                    >
+                    <d-badge outline theme="secondary" v-for="(category, idx) in current_item.Categories" :key="idx">
                       {{ category }}
                     </d-badge>
                   </d-col>
@@ -38,7 +33,7 @@
                   </d-col>
                   <d-col sm="12" md="10">
                     <label class="text-light">{{
-                      format_date_time(current_item.Timestamp)
+                        format_date_time(current_item.Timestamp)
                     }}</label>
                   </d-col>
                 </d-row>
@@ -47,12 +42,7 @@
                     <label>Labels</label>
                   </d-col>
                   <d-col sm="12" md="10">
-                    <d-badge
-                      outline
-                      theme="primary"
-                      v-for="(label, idx) in current_item.Labels"
-                      :key="idx"
-                    >
+                    <d-badge outline theme="primary" v-for="(label, idx) in current_item.Labels" :key="idx">
                       {{ label }}
                     </d-badge>
                   </d-col>
@@ -82,11 +72,7 @@
           <div class="card-body border-bottom">
             <d-input-group prepend="Categories" class="mb-3">
               <d-select @change="changeCategory">
-                <option
-                  v-for="(category, idx) in categories"
-                  :key="idx"
-                  :value="category"
-                >
+                <option v-for="(category, idx) in categories" :key="idx" :value="category">
                   {{ category }}
                 </option>
               </d-select>
@@ -96,11 +82,11 @@
             <table class="table mb-0">
               <thead class="bg-light">
                 <tr>
-                  <th scope="col" class="border-0">ID</th>
+                  <th scope="col" class="border-0">题目ID</th>
                   <th scope="col" class="border-0">Categories</th>
-                  <th scope="col" class="border-0">Timestamp</th>
-                  <th scope="col" class="border-0">Labels</th>
-                  <th scope="col" class="border-0">Description</th>
+                  <th scope="col" class="border-0">时间</th>
+                  <th scope="col" class="border-0">知识点</th>
+                  <th scope="col" class="border-0">题干</th>
                 </tr>
               </thead>
               <tbody>
@@ -108,12 +94,7 @@
                   <td>{{ item.ItemId }}</td>
                   <td>
                     <div>
-                      <d-badge
-                        outline
-                        theme="secondary"
-                        v-for="(category, idx) in item.Categories"
-                        :key="idx"
-                      >
+                      <d-badge outline theme="secondary" v-for="(category, idx) in item.Categories" :key="idx">
                         {{ category }}
                       </d-badge>
                     </div>
@@ -121,17 +102,13 @@
                   <td>{{ format_date_time(item.Timestamp) }}</td>
                   <td>
                     <div>
-                      <d-badge
-                        outline
-                        theme="primary"
-                        v-for="(label, idx) in item.Labels"
-                        :key="idx"
-                      >
+                      <d-badge outline theme="primary" v-for="(label, idx) in item.Labels" :key="idx">
                         {{ label }}
                       </d-badge>
                     </div>
                   </td>
-                  <td>{{ item.Comment }}</td>
+                  <td v-html="item.Comment"></td>
+                  <!-- <td v-html="item.Comment">{{ item.Comment }}</td> -->
                 </tr>
               </tbody>
             </table>
