@@ -1,17 +1,18 @@
 <template>
-    <d-card :class="['stats-small', computedVariationClass, 'card', 'card-small']">
-        <d-card-body :class="[computedBodyClass]">
-            <div :class="['d-flex', computedInnerWrapperClass]">
-                <div :class="['stats-small__data', computedDataFieldClass]">
-                    <span :id="id" :class="['stats-small__label', 'text-uppercase', computedLabelClass]">{{ label }}</span>
-                    <h6 :class="['stats-small__value', 'count', computedValueClass]">{{ value }}</h6>
-                    <d-tooltip :target="'#' + id">
-                        {{ tip }}
-                    </d-tooltip>
-                </div>
-            </div>
-        </d-card-body>
-    </d-card>
+  <d-card :class="['stats-small', computedVariationClass, 'card', 'card-small']">
+    <d-card-body :class="[computedBodyClass]">
+      <div :class="['d-flex', computedInnerWrapperClass]">
+        <div :class="['stats-small__data', computedDataFieldClass]">
+          <span :id="id" :class="['stats-small__label', 'text-uppercase', computedLabelClass]">{{ label }}</span>
+          <!-- <h6 :class="['stats-small__value', 'count', computedValueClass]">{{ value }}</h6> -->
+          <h6 :class="['stats-small__value', 'count', computedValueClass]" v-html="value"></h6>
+          <d-tooltip :target="'#' + id">
+            {{ tip }}
+          </d-tooltip>
+        </div>
+      </div>
+    </d-card-body>
+  </d-card>
 </template>
 
 <script>

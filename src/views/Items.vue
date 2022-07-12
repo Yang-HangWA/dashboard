@@ -30,12 +30,12 @@
               <thead class="bg-light">
                 <tr>
                   <th scope="col" class="border-0">ID</th>
-                  <th scope="col" class="border-0">WordId</th>
-                  <th scope="col" class="border-0">Body</th>
+                  <!-- <th scope="col" class="border-0">WordId</th> -->
+                  <!-- <th scope="col" class="border-0">Body</th> -->
                   <!-- <th scope="col" class="border-0">Timestamp</th> -->
-                  <th scope="col" class="border-0">Labels</th>
-                  <th scope="col" class="border-0">Comment</th>
-                  <th scope="col" class="border-0"></th>
+                  <th scope="col" class="border-1">知识点</th>
+                  <th scope="col" class="border-1">题目</th>
+                  <th scope="col" class="border-1"></th>
                 </tr>
               </thead>
               <tbody>
