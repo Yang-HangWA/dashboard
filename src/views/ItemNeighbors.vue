@@ -52,7 +52,7 @@
                     <label>Description</label>
                   </d-col>
                   <d-col sm="12" md="10">
-                    <label class="text-light">{{ current_item.Comment }}</label>
+                    <label class="text-light" v-html="current_item.Comment"></label>
                   </d-col>
                 </d-row>
               </d-list-group-item>

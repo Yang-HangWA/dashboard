@@ -9,41 +9,29 @@
     <d-card-body class="p-0">
       <div class="card-body border-bottom">
         <d-row>
-          <d-col sm="6"
-            ><d-select v-model="recommender" @change="changeRecommend">
-              <option
-                v-for="option in options"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.text }}
-              </option>
-            </d-select></d-col
-          >
-          <d-col sm="6"
-            ><d-input-group prepend="Categories" class="mb-3">
+          <d-col sm="6"></d-col>
+          <d-select v-model="recommender" @change="changeRecommend">
+            <option v-for="option in options" :key="option.value" :value="option.value">
+              {{ option.text }}
+            </option>
+          </d-select>
+          </d-col>
+          <d-col sm="6">
+            <d-input-group prepend="Categories" class="mb-3">
               <d-select v-model="category" @change="changeCategory">
-                <option
-                  v-for="(category, idx) in categories"
-                  :key="idx"
-                  :value="category"
-                >
+                <option v-for="(category, idx) in categories" :key="idx" :value="category">
                   {{ category }}
                 </option>
               </d-select>
-            </d-input-group></d-col
-          >
+            </d-input-group>
+          </d-col>
         </d-row>
       </div>
     </d-card-body>
 
     <d-card-body class="p-0">
       <!-- Top Referrals List Group -->
-      <div
-        v-for="(item, idx) in pageItems"
-        :key="idx"
-        class="blog-comments__item d-flex p-3"
-      >
+      <div v-for="(item, idx) in pageItems" :key="idx" class="blog-comments__item d-flex p-3">
         <!-- Content -->
         <div class="blog-comments__content">
           <!-- Content - Title -->
@@ -52,26 +40,17 @@
           </div>
 
           <!-- Content - Body -->
-          <p class="m-0 my-1 mb-2 text-muted text-semibold">
-            {{ item.Comment }}
+          <p class="m-0 my-1 mb-2 text-muted text-semibold" v-html="item.Comment">
           </p>
 
           <!-- Content - Actions -->
           <div class="blog-comments__actions">
-            <d-badge
-              outline
-              theme="primary"
-              v-for="(label, idx) in item.Labels"
-              :key="idx"
-            >
+            <d-badge outline theme="primary" v-for="(label, idx) in item.Labels" :key="idx">
               {{ label }}
             </d-badge>
           </div>
 
-          <p
-            class="m-0 my-0 mb-0 text-muted text-semibold"
-            style="font-size: 80%"
-          >
+          <p class="m-0 my-0 mb-0 text-muted text-semibold" style="font-size: 80%">
             {{ item.Timestamp }}
           </p>
         </div>
@@ -80,18 +59,10 @@
 
     <d-card-footer class="border-top">
       <d-button-group class="mb-3">
-        <d-button
-          class="btn-white"
-          @click="prevPage"
-          v-if="this.pageNumber !== 0"
-          ><i class="material-icons">arrow_back_ios</i></d-button
-        >
-        <d-button
-          class="btn-white"
-          @click="nextPage"
-          v-if="this.pageNumber + 1 !== pageCount"
-          ><i class="material-icons">arrow_forward_ios</i></d-button
-        >
+        <d-button class="btn-white" @click="prevPage" v-if="this.pageNumber !== 0"><i
+            class="material-icons">arrow_back_ios</i></d-button>
+        <d-button class="btn-white" @click="nextPage" v-if="this.pageNumber + 1 !== pageCount"><i
+            class="material-icons">arrow_forward_ios</i></d-button>
       </d-button-group>
     </d-card-footer>
   </d-card>
