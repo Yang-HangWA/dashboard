@@ -59,7 +59,8 @@
                       </d-badge>
                     </div>
                   </td>
-                  <td>{{ item.Comment }}</td>
+                  <td v-html="item.Comment"></td>
+                  <!-- <td>{{ item.Comment }}</td> -->
                   <td>
                     <router-link :to="{
                       name: 'item_neighbors',
